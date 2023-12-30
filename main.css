@@ -1,0 +1,113 @@
+body {
+    background-color:  hsl(0, 79%, 65%);;
+}
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner{
+    color: white;
+    margin: 60px;
+    padding: 30px;
+}
+.banner h1{
+    margin-bottom: 15px;
+    font-size: 35px;
+    font-weight: bolder;
+    line-height: 2.5rem;
+}
+
+.banner h3{
+    font-size: 20px;
+    line-height: 5vh;
+}
+.form-area{
+    width: 100%;
+}
+.message{
+    background: hsl(248, 32%, 49%);
+    color: #fff;
+    margin: 5vh auto 0 auto;
+    padding: 15px;
+    border-radius: 7px;
+    width: 85%;
+}
+.contact-form{
+    background: #fff;
+    margin: 5vh auto 0 auto;
+    padding: 50px 30px;
+    border-radius: 5px;
+    width: 80%;
+    font-size: 20px;
+}
+
+.contact-form input{
+    margin : 10px;
+    padding: 15px;
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+
+  .contact-form .btn {
+    margin: 13px;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    width: 80%;
+    text-transform: capitalize;
+    color: #fff;
+    background: hsl(154, 59%, 51%);
+    justify-content: center;
+  }
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+.input-control input:focus {
+    outline: 0;
+}
+.input-control.success input{
+    border-color: aquamarine;
+}
+.input-control.error input {
+    border-color: red;
+}
+.input-control .error{
+    color:hsl(0, 85%, 62%);
+    font-size: 9px;
+    height: 13px;
+}
+.contact-form p{
+    font-size: 11px;
+    color: hsl(246, 25%, 77%);
+    margin-top: 15px;
+    text-align: center;
+}
+
+.contact-form p span{
+    color: hsl(0, 100%, 74%);
+}
+@media screen and (max-width: 700px){
+    .container{
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    } 
+    .banner{
+        color: white;
+        margin: 10px 60px;
+        padding: 30px;
+    }
+    .form-area{
+        width: 100%;
+        margin-top: -25px;
+    }
+}

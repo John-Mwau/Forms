@@ -1,64 +1,36 @@
-let form = document.getElementById ('form');
-let FirstName = document.getElementById ('F-name');
-let LastName = document.getElementById ('L-name');
-let Email = document.getElementById ('Email');
-let Password = document.getElementById ('Password');
-
-form.addEventListener ('submit', e =>{
-    e.preventDefault();
-    validateInputs();
-})
-
-let isEmailValid = Email =>{
-    let emailcheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return emailcheck.test(string(Email).toLowerCase());
-};
+let form = document.getElementById('form');
+let FirstName = document.getElementById('F-name');
+let LastName = document.getElementById('L-name');
+let Email = document.getElementById('Email');
+let Password = document.getElementById('Password');
+let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+let error = document.getElementsByClassName('error');
 
 
-let setError = (element, message) => {
-    let inputcontrol = element.parentElemt;
-    const errorDisplay = inputcontrol.queryselector('.error');
-    errorDisplay.innerText = message;
-    inputcontrol.classlist.add('error');
-    inputcontrol.classlist.remove('success')
+form.addEventListener ('submit', (e)=>{
+e.preventDefault();
+if (FirstName.value.trim() === '' || FirstName.value.trim() == null){
+    error[0].innerHTML = 'First Name Is Required';
 }
-
-let setSuccess = element =>{
-    const inputcontrol = element.parentElemt;
-    const errorDisplay = inputcontrol.queryselector('.error');
-    errorDisplay.innerText = '';
-    inputcontrol.classlist.add('success');
-    inputcontrol.classlist.remove('error');
-
-};
- const validateInputs = () =>{
-    let FirstNameValue = FirstName.value.trim();
-    let LastNameValue = LastName.value.trim();
-    let EmailValue = Email.value.trim();
-    let PasswordValue = Password.value.trim();
-
-    if (FirstNameValue === '') {
-        setError(FirstName, 'First Name is required')
-    }else{
-        setSuccess(FirstName)
-    }
-    if (LastNameValue === ''){
-        setError(LastName, 'Last Name is required');
-    }else{
-        setSuccess(LastName)
-    }
-    if (EmailValue === ''){
-        setError (Email, 'Enter Your Email');
-    }else if (!isEmailValid(EmailValue)){
-        setError(Email, 'Provide a Valid Email');
-    }else{
-        setSuccess(Email);
-    }
-    if (PasswordValue === ''){
-        setError (Password, 'Provide a Password');
-    }else if(PasswordValue.length < 8){
-        setError(Password, 'Password Must atleast be 8 characters')
-    }else{
-        setSuccess(Password);
-    }
-    };
+else{
+    error[0].innerHTML = '';
+}
+if (LastName.value.trim() === '' || LastName.value.trim() == null){
+    error[1].innerHTML = 'Last Name Is Required';
+}
+else{
+    error[1].innerHTML = '';
+}
+if(!Email.value.match(emailRegex)){
+    error[2].innerHTML ='Please Eneter a Valid Email'
+}
+else{
+    error[2].innerHTML = '';
+}
+if (Password.value.length <=8){
+    error[3].innerHTML = 'Password Must be atleast 8 Characters'
+}
+else{
+    error[3].innerHTML = '';
+}
+})
